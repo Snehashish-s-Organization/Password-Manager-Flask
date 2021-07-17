@@ -23,13 +23,11 @@ def loginPage():
             username = request.form["UpName"]
             password = request.form["UpPass"]
             email = request.form["UpMail"]
-
-            try:
-                if signCheck(username,email):
-                    signup(username, password, email)
-                    return redirect("https://snehashish090.github.io")
-            except:
-                return redirect("/")
+            if signCheck(username,email):
+                signup(username, password, email)
+                return redirect("https://snehashish090.github.io")
+            else:
+                return render_template("login.html", logmsg="Sorry! An user with this username or email already exists")
         else:
             return render_template("login.html")
             

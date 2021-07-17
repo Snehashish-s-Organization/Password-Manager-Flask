@@ -26,9 +26,13 @@ def signup(username="default", password="default", email="default", mydata = use
         #User(username=username,email=email, password=password).returnData()
         
 def signCheck(username, email):
+    names = []
+    emails = []
     for i in userdata:
-        if i["username"] == username or i["email"] == email:
-            return False
-        else:
-            return True
-print(hashlib.sha256("snehashis2h".encode()).hexdigest())
+        names.append(i["username"])
+        emails.append(i["email"])
+
+    if username in names or username in emails:
+        return False
+    else:
+        return True
