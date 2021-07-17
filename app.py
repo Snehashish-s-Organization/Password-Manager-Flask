@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for
-
+from signup import *
 app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
@@ -20,8 +20,16 @@ def loginPage():
                 return redirect("/login")
         
         elif "upSubmit" in request.form:
-            return redirect("/signup")
+            username = request.form["UpName"]
+            password = request.form["UpPass"]
+            email = request.form["UpMail"]
 
+            try:
+                if signCheck(username,email):
+                    signup(username, password, email)
+                    return redirect("https://snehashish090.github.io")
+            except:
+                return redirect("/")
         else:
             return render_template("login.html")
             
