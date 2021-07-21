@@ -4,8 +4,11 @@ with open("data/userdata.json", "r") as file:
     userdata = json.load(file)
 
 def checklogin(username, password):
+    mylist = []
     for i in userdata:
-        if i["username"] == username and i["password"] == password:
-            return True
-        else:
-            return False
+        if username == i["username"]:
+            if password == i["password"]:
+                return True
+        
+    return False
+

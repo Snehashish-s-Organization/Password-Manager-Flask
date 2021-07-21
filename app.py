@@ -29,15 +29,15 @@ def auth():
             if request.method == "POST":
                 if "LogButton" in request.form:
 
-                    username = request.form["LogName"]
-                    password = request.form["LogPass"]
+                    myusername = request.form["LogName"]
+                    mypassword = request.form["LogPass"]
 
-                    if checklogin(username, password):
-                        session["username"] = username
+                    if checklogin(myusername, mypassword):
+                        session["username"] = myusername
                         session["status"] = "logged"
                         return redirect("/lol")
                     else:
-                        return redirect("/auth")
+                        return render_template("login.html", logmsg = "Please check your username and password")
 
                 elif "upSubmit" in request.form:
                     
