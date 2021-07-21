@@ -21,7 +21,7 @@ class User(object):
         }
 
 def signup(username="default", password="default", email="default", mydata = userdata):
-    with open("data/userdata.json", "w") as file:
+    with open("../data/userdata.json", "w") as file:
         userdata.append(User(username=username,email=email, password=password).returnData())
         json.dump(userdata, file, indent=4)
         #User(username=username,email=email, password=password).returnData()

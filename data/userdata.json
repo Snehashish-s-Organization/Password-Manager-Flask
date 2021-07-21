@@ -2,21 +2,7 @@
     {
         "username": "snehashish",
         "password": "snehashish",
-        "email": "snehashish.laskar@gmail.com"
-    },
-    {
-        "username": "moy",
-        "password": "moy",
-        "email": "test@yu"
-    },
-    {
-        "username": "nirvelli",
-        "password": "lol",
-        "email": "nirvelli.chheda@sahyadrischool.org"
-    },
-    {
-        "username": "ishan",
-        "password": "amritalikesishan",
-        "email": "ishan@kissingamrita"
+        "email": "snehashish.laskar@gmail.com",
+        "data": []
     }
 ]
