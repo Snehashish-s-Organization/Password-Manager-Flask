@@ -16,8 +16,7 @@ class User(object):
         return {
             "username": self.username,
             "password": self.password,
-            "email": self.email,
-            "data":[]
+            "email": self.email
         }
 
 def signup(username="default", password="default", email="default", mydata = userdata):
