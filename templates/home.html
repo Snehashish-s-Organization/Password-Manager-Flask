@@ -87,31 +87,23 @@ div.content {
     <table id = "table" class="table table-striped">
         <thead>
           <tr class = "tablerow">
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Sr.No</th>
+            <th scope="col">Site name</th>
+            <th scope="col">Email used</th>
+            <th scope="col">Username used</th>
+            <th scope="col">Password</th>
           </tr>
         </thead>
         <tbody>
-          <tr class= "tablerow">
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr class = "tablerow">
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr class="tablerow">
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {% for password in userdata %}
+            <tr class= "tablerow">
+              <th scope="row">{{userdata.index(password)+1}}</th>
+              <td>{{password["site_name"]}}</td>
+              <td>{{password["site_email"]}}</td>
+              <td>{{password["site_username"]}}</td>
+              <td>{{password["site_password"]}}</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

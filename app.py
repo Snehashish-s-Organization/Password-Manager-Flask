@@ -13,11 +13,6 @@ app = Flask(__name__)
 # setting a secret_key required for sessions
 app.secret_key = "snehashishkasecretkey"
 
-# Making a home page and rendering the template "home.html"
-@app.route('/', methods=["GET", "POST"])
-def home():
-    return render_template("home.html")
-
 # Making a page to return the user details or "cookies"
 @app.route('/lol', methods=["GET", "POST"])
 def signupPage():
@@ -49,7 +44,7 @@ def auth():
                         session["username"] = myusername
                         session["status"] = "logged"
                         # returning the user to home 
-                        return redirect("/lol")
+                        return redirect("/dashboard")
                     else:
                         # if the credentials are wrong then displaying the message to the user
                         return render_template("login.html", logmsg = "Please check your username and password")
@@ -89,3 +84,22 @@ def logout():
     session["username"]  = "blah"
     return redirect("/auth")
 
+@app.route("/add", methods=["POST", "GET"])
+def addSite():
+    pass
+
+@app.route("/remover", methods=["POST", "GET"])
+def delSite():
+    pass
+
+@app.route("/dashboard", methods=["POST", "GET"])
+def dashboard():
+    with open("data/userdata.json", "r") as file:
+        data = json.load(file)
+
+    for i in data:
+        if i["username"] == session["username"]:
+            userdata = i["data"]
+            break
+
+    return render_template("home.html", userdata = userdata)

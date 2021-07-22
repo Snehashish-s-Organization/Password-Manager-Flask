@@ -52,3 +52,4 @@ def delete_password(username, site_name):
     with open("data/userdata.json", "w") as file:
         json.dump(data, file,indent=4 )
 
+add_password("romeo", "lol", "lol", "lol", "lol")
