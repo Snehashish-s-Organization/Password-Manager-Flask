@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style type="text/css">
+    .fa-fa-Form{
+      width: auto;
+      margin: 10%;
+      padding: 5%;
+      background-color: whitesmoke;
+      border-radius:10px;
+    }
+    #data{
+      width:83%;
+      background-color: whitesmoke;
+      float: right;
+      margin-top:10px;
+      
+
+    }
+    .actions{
+      width: 17%;
+      height: auto;
+      content: block;
+      background-color:#ecf0f1 ;
+      padding-bottom: 100%;
+      position: fixed;
+      text-align: center;
+    }
+    #men:hover{
+      background-color: #191919;
+      color:white;
+    }
+    #myForm{
+      float:right;
+      width:80%;
+
+    }
+    #myinput{
+      width:800px;
+      float:left;
+    }
+  </style>
+
+
+  <title>Snehashish</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body >
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Password Man</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Source Code</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dashboard</a>
+      </li>
+    </ul>
+      <form class="form-inline">
+<!--     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name = "logbutton">{{logmsg}}</button>
+  </form>
+  </div>
+</nav>
+
+
+
+<!-- <div class = "actions">
+  <h3>Actions:</h3>
+  <a href="/add">Add a password for a site</a>
+  <a href="/del">Delete a pasword for a site</a>
+  <a href="/update"> Update the password for a site</a>
+</div> -->
+<div class="w3-sidebar w3-light-grey w3-bar-block" id  = "menubar" style="text-decoration: none; width:17%; text-align: center; background: #191919">
+  <h3 class="w3-bar-item">Actions</h3>
+  <a href="/add" class="w3-bar-item w3-button" id = "men">Add a new password</a>
+  <a href="/del" class="w3-bar-item w3-button" id = "men">Delete a password</a>
+  <a href="/update" class="w3-bar-item w3-button" id = "men">Update a password</a>
+</div>
+   
+<table class="table table-striped" id = "data">
+  <thead>
+    <tr>
+      <th scope = "col">Sr.No</th>
+      <th scope="col">Site name</th>
+      <th scope="col">Username or email</th>
+      <th scope="col">Password </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in tabledata %}
+      <tr>
+        <td>{{ tabledata.index(i)+1 }}</td>
+      <td>{{ i.get('site') }}</td>
+      <td>{{ i.get('used')}}</td>
+      <td>{{ i.get('password') }}</td>
+    </tr>
+    {% endfor %}
+  <script type="text/javascript">
+    function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue1, txtValue2, txtValue3;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("data");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td");
+      td1 = td[0];
+      td2 = td[1];
+      td3 = td[2];
+      if (td1 && td2 && td3) {
+        txtValue1 = td1.textContent || td1.innerText;
+        txtValue2 = td2.textContent || td2.innerText;
+        txtValue3 = td3.textContent || td3.innerText;
+        // console.log(txtValue1 + txtValue2)
+        in1 = txtValue1.toUpperCase().indexOf(filter) > -1
+        in2 = txtValue2.toUpperCase().indexOf(filter) > -1
+        in3 = txtValue3.toUpperCase() === filter
+        inall = in1 || in2 || in3
+        if (inall) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }   
+  function deleteValue() {
+  }
+  </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
