@@ -3,13 +3,6 @@
         "username": "romeo",
         "password": "lol",
         "email": "anwesha@cheda1",
-        "data": [
-            {
-                "site_name": "snehashishi",
-                "site_password": "lol",
-                "site_email": "snehashish@ii",
-                "site_username": "senh"
-            }
-        ]
+        "data": []
     }
 ]

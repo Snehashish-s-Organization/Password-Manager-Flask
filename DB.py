@@ -1,9 +1,3 @@
-"""
-Author: snehashish laskar,
-Email: snehashish.laskar@gmail.com
-Github Username: snehashish090
-
-"""
 
 # Importing the necessary modules
 import json
@@ -11,25 +5,6 @@ import json
 with open("data/userdata.json", "r") as file:
     data = json.load(file)
 
-"""
-    We will store the Passwords of each in the "data" key in the json file "userdata.json"
-    Structure of the userdata.json:
-    [
-        {
-            "username":"USERNAME",
-            "password":"PASSWORD",
-            "email":"EMAIL",
-            "data":[
-                {
-                    "sitename": "SITENAME",
-                    "password_for_site": "PASSWORD",
-                    "email_used": "EMAIL",
-                    "username": "USERNAME",
-                }
-            ]
-        }
-    ]
-    """
 class Password:
     """
         A class Password to represent each password
@@ -65,3 +40,15 @@ def add_password(username, site_name, site_password, site_email, site_username):
 
     with open("data/userdata.json", "w") as file:
         json.dump(data, file,indent=4 )
+
+def delete_password(username, site_name):
+    for i in data:
+        if i["username"] == username:
+            for h in i["data"]:
+                if h["site_name"] == site_name:
+                    index = i["data"].index(h)
+                    del i["data"][index]
+
+    with open("data/userdata.json", "w") as file:
+        json.dump(data, file,indent=4 )
+
