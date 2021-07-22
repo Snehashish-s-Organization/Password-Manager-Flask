@@ -1,22 +1,15 @@
 [
     {
-        "username": "snehashish",
-        "password": "snehashish",
-        "email": "snehashish.laskar@gmail.com"
-    },
-    {
-        "username": "moy",
-        "password": "moy",
-        "email": "test@yu"
-    },
-    {
-        "username": "nirvelli",
+        "username": "romeo",
         "password": "lol",
-        "email": "nirvelli.chheda@sahyadrischool.org"
-    },
-    {
-        "username": "ishan",
-        "password": "amritalikesishan",
-        "email": "ishan@kissingamrita"
+        "email": "anwesha@cheda1",
+        "data": [
+            {
+                "site_name": "snehashishi",
+                "site_password": "lol",
+                "site_email": "snehashish@ii",
+                "site_username": "senh"
+            }
+        ]
     }
 ]
