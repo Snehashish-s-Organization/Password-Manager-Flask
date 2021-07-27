@@ -7,6 +7,7 @@
 from flask import Flask, request, render_template, redirect, url_for, session
 from signup import *
 from log import *
+from DB import *
 
 # Initializing the flask app
 app = Flask(__name__)
@@ -59,7 +60,7 @@ def auth():
                         signup(username, password, email)
                         session["username"] = username
                         session["status"] = "logged"
-                        return redirect("/lol")
+                        return redirect("/dashboard")
 
 
                     elif username =="" or password=="" or email=="" : 
@@ -86,7 +87,37 @@ def logout():
 
 @app.route("/add", methods=["POST", "GET"])
 def addSite():
-    pass
+    if request.method == "POST":
+        with open("data/userdata.json", "r") as file:
+            data = json.load(file)
+
+        for i in data:
+            if i["username"] == session["username"]:
+                userdata = i["data"]
+                break
+
+        name = request.form["name"]
+        email = request.form["email"]
+        pw = request.form["pw"]
+        
+        list_of_sites = []
+        for element in userdata:
+            list_of_sites.append(element["site_name"])
+        
+        if name not in list_of_sites:
+            add_password(
+                session["username"],
+                name,
+                pw,
+                email,
+                "none"
+            )
+            return redirect("/dashboard")
+
+        else:
+            return render_template("adding.html", typ = "red", msg="The password had already been added")
+    else:
+        return render_template("adding.html", typ="none")
 
 @app.route("/remover", methods=["POST", "GET"])
 def delSite():
