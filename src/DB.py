@@ -41,6 +41,17 @@ def add_password(username, site_name, site_password, site_email, site_username):
     with open("data/userdata.json", "w") as file:
         json.dump(data, file,indent=4 )
 
+def addUser(name, password, email):
+    with open('data/userdata.json', 'w') as file:
+        data.append({
+            "username":name,
+            "password":password,
+            "email":email,
+            "data":[]
+        })
+        json.dump(data, file, indent=4)
+
+
 def delete_password(username, site_name):
     for i in data:
         if i["username"] == username:
