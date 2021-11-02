@@ -1,4 +1,4 @@
-import re
+
 from flask import Flask, request, jsonify
 import json
 from DB import *
@@ -43,4 +43,4 @@ def main_page():
                 )        
             return jsonify(data)
 
-app.run(debug=True)
+app.run(debug=True, host="0.0.0.0", port=8235)
