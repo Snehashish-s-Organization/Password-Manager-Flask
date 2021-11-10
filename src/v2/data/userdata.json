@@ -1,0 +1,40 @@
+[
+    {
+        "username": "snehashish",
+        "password": "snehashish08036",
+        "email": "snehashish.laskar@gmail.com",
+        "data": [
+            {
+                "site_name": "snehashish",
+                "site_password": "snehashish",
+                "site_email": "snehashish.laskar@gmail.com",
+                "site_username": "snehashish"
+            },
+            {
+                "site_name": "snehashish2",
+                "site_password": "snehashish08036",
+                "site_email": "sumanlaskar1@gmail.com",
+                "site_username": "snehashish"
+            }
+        ]
+    },
+    {
+        "username": "suman",
+        "password": "snehashish08036",
+        "email": "snehashish.laskar@gmail.com",
+        "data": [
+            {
+                "site_name": "google",
+                "site_password": "snehashish08036",
+                "site_email": "snehashish.laskar@gmail.com",
+                "site_username": "snehashish laskar"
+            },
+            {
+                "site_name": "lol",
+                "site_password": "lol",
+                "site_email": "w",
+                "site_username": "lol"
+            }
+        ]
+    }
+]
